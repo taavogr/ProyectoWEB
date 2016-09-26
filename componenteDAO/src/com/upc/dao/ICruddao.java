@@ -8,9 +8,9 @@ public interface ICruddao<T> {
 
 	void update(T o) throws SQLException;
 
-	void delete(T o) throws SQLException;
+	void delete(int codigo) throws SQLException;
 
-	T get(String codigo) throws SQLException;
+	T get(int codigo) throws SQLException;
 
 	List<T> getAll() throws SQLException;
 }

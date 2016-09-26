@@ -49,13 +49,13 @@ public class Cursodao implements ICursodao{
 	}
 
 	@Override
-	public void delete(Curso o) throws SQLException {
+	public void delete(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Curso get(String codigo) throws SQLException {
+	public Curso get(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}

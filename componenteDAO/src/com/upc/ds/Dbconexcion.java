@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Dbconexcion {
-	private static final String url = "jdbc:mysql://localhost:3306/dbparcial";//corregir nombre de la bd
+	private static final String url = "jdbc:mysql://localhost:3306/dbcursosvirtual";//corregir nombre de la bd
     private static final String user = "root";
     private static final String passwd = "root";
     

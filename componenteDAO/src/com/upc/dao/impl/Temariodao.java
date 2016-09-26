@@ -50,13 +50,13 @@ public class Temariodao implements ITemariodao{
 	}
 
 	@Override
-	public void delete(Temario o) throws SQLException {
+	public void delete(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Temario get(String codigo) throws SQLException {
+	public Temario get(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}

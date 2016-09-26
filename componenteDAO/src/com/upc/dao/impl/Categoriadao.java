@@ -46,13 +46,13 @@ public class Categoriadao implements ICategoriadao {
 	}
 
 	@Override
-	public void delete(Categoria o) throws SQLException {
+	public void delete(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Categoria get(String codigo) throws SQLException {
+	public Categoria get(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}

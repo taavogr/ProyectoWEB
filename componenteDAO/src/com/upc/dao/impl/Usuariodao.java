@@ -17,6 +17,7 @@ public class Usuariodao implements IUsuariodao{
 	public void create(Usuario o) throws SQLException {
 		// TODO Auto-generated method stub
 		String insert = "{call sp_insert_usuario(?,?,?,?,?,?,?)}";
+		String rol = "usuario";
 
 		Connection cn = Dbconexcion.getInstance();
 
@@ -30,7 +31,7 @@ public class Usuariodao implements IUsuariodao{
 		cs.setString(4, o.getCorreo());
 		cs.setString(5, o.getUsuario());
 		cs.setString(6, o.getClave());
-		cs.setString(7, o.getRol());
+		cs.setString(7, rol);
 
 		cs.execute();
 
@@ -51,13 +52,13 @@ public class Usuariodao implements IUsuariodao{
 	}
 
 	@Override
-	public void delete(Usuario o) throws SQLException {
+	public void delete(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Usuario get(String codigo) throws SQLException {
+	public Usuario get(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}

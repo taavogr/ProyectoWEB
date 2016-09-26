@@ -51,13 +51,13 @@ public class Inscripciondao implements IInscripciondao{
 	}
 
 	@Override
-	public void delete(Inscripcion o) throws SQLException {
+	public void delete(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Inscripcion get(String codigo) throws SQLException {
+	public Inscripcion get(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
