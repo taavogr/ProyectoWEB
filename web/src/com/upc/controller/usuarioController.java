@@ -52,12 +52,11 @@ public class usuarioController extends HttpServlet {
 		String path = request.getServletPath();
 		
 		try {
-			if (path.equals("/newu")) {
-				
-			}else if (path.equals("/insertu")) {
+			if (path.equals("/insertu")) {
 				insert(request);
+			}
 				
-			} 
+			
 			
 		} catch (SQLException e) {
 			// TODO: handle exception
