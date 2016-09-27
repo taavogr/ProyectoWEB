@@ -19,6 +19,7 @@ public class Usuariodao implements IUsuariodao{
 		String insert = "{call sp_insert_usuario(?,?,?,?,?,?,?)}";
 		String rol = "usuario";
 
+
 		Connection cn = Dbconexcion.getInstance();
 
 		cn.setAutoCommit(true);// Transaccion nivel BD.
