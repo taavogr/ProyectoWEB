@@ -63,6 +63,7 @@ public class usuarioController extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 		
+	
 		RequestDispatcher rd = request.getRequestDispatcher(destino);
 		
 		rd.forward(request, response);

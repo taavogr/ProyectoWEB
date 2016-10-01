@@ -44,24 +44,87 @@ public class Usuariodao implements IUsuariodao{
 		if (!estado.equals("ok")) {
 			throw new SQLException(estado);
 		}
+		
+		/*cn.close();*/
 	}
 
 	@Override
 	public void update(Usuario o) throws SQLException {
 		// TODO Auto-generated method stub
 		
+		String update = "{call sp_update_usuario(?,?,?,?,?,?,?,?)}";
+
+		Connection cn = Dbconexcion.getInstance();
+
+		cn.setAutoCommit(true);
+
+		CallableStatement cs = cn.prepareCall(update);
+
+		cs.registerOutParameter(1, java.sql.Types.VARCHAR);
+		cs.setInt(2, o.getIdUsuario());
+		cs.setString(3, o.getNombre());
+		cs.setString(4, o.getDNI());
+		cs.setString(5, o.getCorreo());
+		cs.setString(6, o.getUsuario());
+		cs.setString(7, o.getClave());
+		cs.setString(8, o.getRol());
+
+		cs.execute();
+
+		String estado = cs.getString(1);
+
+		cs.close();
+		cs = null;
+
+		if (!estado.equals("Actualizado!")) {
+			throw new SQLException(estado);
+		}
+		
 	}
 
 	@Override
 	public void delete(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
+		String delete = "{call sp_delete_usuario(?,?)}";
+
+		Connection cn = Dbconexcion.getInstance();
+
+		cn.setAutoCommit(true);
+
+		CallableStatement cs = cn.prepareCall(delete);
+
+		cs.registerOutParameter(1, java.sql.Types.VARCHAR);
+		cs.setInt(2, codigo);
+
+		cs.execute();
+
+		String estado = cs.getString(1);
+
+		cs.close();
+		cs = null;
+
+		if (!estado.equals("Eliminado!")) {
+			throw new SQLException(estado);
+		}
 		
 	}
 
 	@Override
 	public Usuario get(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		String query = "{call sp_get_usuario(?)}";
+		Connection cn = Dbconexcion.getInstance();
+
+		CallableStatement cs = cn.prepareCall(query);
+		cs.setInt(1, codigo);
+
+		ResultSet rs = cs.executeQuery();
+		if (rs.next()) {
+			 mapRow(rs);
+		}
+
+		return mapRow(rs);
+		
 	}
 
 	@Override

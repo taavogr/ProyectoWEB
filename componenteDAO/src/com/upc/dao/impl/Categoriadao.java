@@ -42,19 +42,73 @@ public class Categoriadao implements ICategoriadao {
 	@Override
 	public void update(Categoria o) throws SQLException {
 		// TODO Auto-generated method stub
+		String update = "{call sp_update_categoria(?,?,?)}";
+
+		Connection cn = Dbconexcion.getInstance();
+
+		cn.setAutoCommit(true);
+		CallableStatement cs = cn.prepareCall(update);
+
+		cs.registerOutParameter(1, java.sql.Types.VARCHAR);
+		cs.setInt(2, o.getIdCategoria());
+		cs.setString(3, o.getNombre());
+
+		cs.execute();
+
+		String estado = cs.getString(1);
+
+		cs.close();
+		cs = null;
+
+		if (!estado.equals("ok")) {
+			throw new SQLException(estado);
+		}
 
 	}
 
 	@Override
 	public void delete(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
+		String delete = "{call sp_delete_categoria(?,?)}";
+
+		Connection cn = Dbconexcion.getInstance();
+
+		cn.setAutoCommit(true);
+
+		CallableStatement cs = cn.prepareCall(delete);
+
+		cs.registerOutParameter(1, java.sql.Types.VARCHAR);
+		cs.setInt(2, codigo);
+
+		cs.execute();
+
+		String estado = cs.getString(1);
+
+		cs.close();
+		cs = null;
+
+		if (!estado.equals("Eliminado!")) {
+			throw new SQLException(estado);
+		}
 
 	}
 
 	@Override
 	public Categoria get(int codigo) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		String query = "{call sp_get_categoria(?)}";
+		Connection cn = Dbconexcion.getInstance();
+
+		CallableStatement cs = cn.prepareCall(query);
+		cs.setInt(1, codigo);
+
+		ResultSet rs = cs.executeQuery();
+		if (rs.next()) {
+			 mapRow(rs);
+		}
+
+		return mapRow(rs);
+	
 	}
 
 	@Override
