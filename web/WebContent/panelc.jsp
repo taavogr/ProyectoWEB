@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Insert Code - Aprende Programación</title>
+  <title>Insert Code - Panel Categorias</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,98 +16,25 @@
   <nav class="blue-grey lighten-2" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo"><img class="responsive-img" src="imagenes/Insert_Project.png" height="20px" width="100px" ></a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="modal-trigger"  href="#modal1">Ingresar</a></li>
+        <li><a  href="paneladmin.jsp">HOME</a></li>
+        <li><a  href="clist">Categorias</a></li>
+        <li><a   href="culist">Cursos</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a class = "modal-trigger" href="#modal1">Ingresar</a></li>
+        <li><a   href="paneladmin.jsp">HOME</a></li>
+        <li><a   href="clist">Categorias</a></li>
+        <li><a  href="culist">Cursos</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
   
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center blue-text text-darken-4">Comienza a Programar</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Los mejores cursos gratuitos de la red</h5>
-      </div>
-      <div class="row center">
-        <a href="usuario.jsp" id="download-button" class="btn-large waves-effect waves-light cyan darken-4">Registrate</a>
-      </div>
-      <br><br>
-
-    </div>
-  </div>
-
-
   <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center purple-text"><i class="material-icons">query_builder</i></h2>
-            <h5 class="center">CLASES CONCRETAS</h5>
-
-            <p class="light">Clases con duración máxima de dos horas, faciles de llevar en tu día a día de aprendizaje.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">today</i></h2>
-            <h5 class="center">ACCESO 24/7</h5>
-
-            <p class="light">Accede a los cursos en cualquier momento, desde cualquier lugar.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center red-text text-accent-3"><i class="material-icons">chat</i></h2>
-            <h5 class="center">APRENDIZAJE COLOBORATIVO</h5>
-
-            <p class="light">Aprende de los demás dejando tus dudas para que profesores y compañeros te ayuden.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <br><br>
-
-    <div id="modal1" class="modal">
-    <div class="modal-content">
-      <form class="col s12" action="login" method="post">
-      <div class="row">
-        
-        <div class="input-field col s6">
-          <input id="nick" name="nick" type="text" class="validate">
-          <label for="nick">Nick de Usuario</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" name="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
- 
-      <div class="center">
-             <button class="btn waves-effect waves-light cyan darken-4" type="submit" name="action">
-
-Ingresar<i class="material-icons right">send</i>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
-    </div>
+  
   </div>
-
-    
-  </div>
-  </div>
+  
+  
 
   <footer class="page-footer grey lighten-3">
     <div class="container">

@@ -161,4 +161,25 @@ public class Usuariodao implements IUsuariodao{
 		return u;
 	}
 
+	@Override
+	public Usuario autenticar(String nick, String password) throws SQLException {
+		// TODO Auto-generated method stub
+		
+		String query ="{call sp_autenticar_usuario(?,?)}";
+		Connection cn =Dbconexcion.getInstance();
+		
+		CallableStatement cs =cn.prepareCall(query);
+		cs.setString(1, nick);
+		cs.setString(2, password);
+		
+		ResultSet rs=cs.executeQuery();
+		
+		if (rs.next()) {
+			mapRow(rs);
+		}
+		
+		
+		return mapRow(rs);
+	}
+
 }

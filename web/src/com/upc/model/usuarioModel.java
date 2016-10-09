@@ -38,5 +38,11 @@ public class usuarioModel {
 		
 		return udao.getAll();
 	}
+	
+	public Usuario iniciosesion(String nick , String password) throws SQLException{
+		
+		Usuario u= udao.autenticar(nick, password);
+		return u;
+	}
 
 }

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.upc.dto.Categoria;
 import com.upc.dto.Usuario;
@@ -18,13 +19,16 @@ import com.upc.model.usuarioModel;
 /**
  * Servlet implementation class usuarioController
  */
-@WebServlet({ "/insertu", "/deleteu", "/updateu", "/listu", "/editu" })
+@WebServlet({ "/insertu", "/deleteu", "/updateu", "/listu", "/editu","/login","/cerraru" })
 public class usuarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private usuarioModel umodel = null;
 	private String mensaje = null;
-	private String destino = "/usuario.jsp";
+	private String destino = "/index.html";
+	private Usuario u = new Usuario();
+	
+	private HttpSession session=null;
 	
        
     /**
@@ -49,11 +53,39 @@ public class usuarioController extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		session = request.getSession(true);
+		
 		String path = request.getServletPath();
 		
 		try {
 			if (path.equals("/insertu")) {
 				insert(request);
+				destino="/index.html";
+			}else if(path.equals("/login")){
+				String nick=request.getParameter("nick");
+				String password=request.getParameter("password");
+				
+				u=umodel.iniciosesion(nick, password);
+				
+				if (u!=null) {
+					session.setAttribute("usuario", u);
+					session.setAttribute("ID", session.getId());
+					switch(u.getRol()){
+					
+					case "admin" :
+						destino="paneladmin.jsp";
+						break;
+					case "usuario" :
+						destino="catalogoc.jsp";
+						break;
+					
+					}
+					
+				}else{
+					request.setAttribute("mensaje", "credenciales no validas");
+					destino="index.hmtl";
+					
+				}
 			}
 				
 			
@@ -71,14 +103,14 @@ public class usuarioController extends HttpServlet {
 	
 	protected void insert(HttpServletRequest request) throws ServletException, IOException, SQLException {
 		// TODO Auto-generated method stub
-		Usuario user = new Usuario();
-		user.setNombre(request.getParameter("nombre"));
-		user.setUsuario(request.getParameter("nick"));
-		user.setDNI(request.getParameter("dni"));
-		user.setClave(request.getParameter("password"));
-		user.setCorreo(request.getParameter("email"));
 		
-		umodel.registrarUsuario(user);
+		u.setNombre(request.getParameter("nombre"));
+		u.setUsuario(request.getParameter("nick"));
+		u.setDNI(request.getParameter("dni"));
+		u.setClave(request.getParameter("password"));
+		u.setCorreo(request.getParameter("email"));
+		
+		umodel.registrarUsuario(u);
 	}
 
 	/**
