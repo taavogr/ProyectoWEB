@@ -167,6 +167,7 @@ public class Usuariodao implements IUsuariodao{
 		
 		String query ="{call sp_autenticar_usuario(?,?)}";
 		Connection cn =Dbconexcion.getInstance();
+		Usuario user= new Usuario();
 		
 		CallableStatement cs =cn.prepareCall(query);
 		cs.setString(1, nick);
@@ -175,11 +176,11 @@ public class Usuariodao implements IUsuariodao{
 		ResultSet rs=cs.executeQuery();
 		
 		if (rs.next()) {
-			mapRow(rs);
+			user=mapRow(rs);
 		}
 		
 		
-		return mapRow(rs);
+		return user;
 	}
 
 }

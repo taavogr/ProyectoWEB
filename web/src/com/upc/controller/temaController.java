@@ -21,7 +21,7 @@ import com.upc.model.temaModel;
 /**
  * Servlet implementation class temaController
  */
-@WebServlet({ "/newt", "/createt", "/removet", "/deletet", "/editt", "/updatet", "/listt", "/readt" })
+@WebServlet({ "/newt", "/createt", "/removet", "/deletet", "/editt", "/updatet", "/listt", "/readt","/insertt" })
 public class temaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private temaModel tmodel=null;
@@ -83,7 +83,7 @@ String path = request.getServletPath();
 				
 				}else if (path.equals("/listt")) {//Lista todos dato BD
 					mensaje = list(request, tmodel);
-					destino = "/panelcu.jsp";
+					destino = "/panelt.jsp";
 				} else if (path.equals("/readt")) {//Muestra dato seleccionado
 					read(request, tmodel);
 					destino = "readt.jsp";

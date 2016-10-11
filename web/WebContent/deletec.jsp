@@ -18,13 +18,15 @@
       <ul class="right hide-on-med-and-down">
         <li><a  href="paneladmin.jsp">HOME</a></li>
         <li><a  href="clist">Categorias</a></li>
-        <li><a   href="culist">Cursos</a></li>
+        <li><a   href="listcu">Cursos</a></li>
+        <li><a   href="listt">Temas</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a   href="paneladmin.jsp">HOME</a></li>
         <li><a   href="clist">Categorias</a></li>
-        <li><a  href="culist">Cursos</a></li>
+        <li><a  href="listcu">Cursos</a></li>
+        <li><a   href="listt">Temas</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -45,7 +47,7 @@
 				<div class="form-actions">
 					<button type="submit" class="btn btn-danger">Si eliminar</button>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a class="btn" href="listc">No eliminar</a>
+					<a class="btn" href="clist">No eliminar</a>
 				</div>
 			</form>
 		</div>

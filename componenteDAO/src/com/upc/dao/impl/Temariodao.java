@@ -145,6 +145,7 @@ public class Temariodao implements ITemariodao{
 		t.setNombre(rs.getString(2));
 		
 		cu.setIdCurso(rs.getInt(3));
+		cu.setNombre(rs.getString(4));
 		
 		
 		

@@ -104,7 +104,7 @@ public class Categoriadao implements ICategoriadao {
 
 		ResultSet rs = cs.executeQuery();
 		if (rs.next()) {
-			 mapRow(rs);
+			mapRow(rs);
 		}
 
 		return mapRow(rs);

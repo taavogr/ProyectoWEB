@@ -20,7 +20,7 @@ import com.upc.model.cursoModel;
 /**
  * Servlet implementation class cursoController
  */
-@WebServlet({ "/newcu", "/createcu", "/removecu", "/deletecu", "/editcu", "/updatecu", "/listcu", "/readcu","/cuinsert" })
+@WebServlet({ "/newcu", "/createcu", "/removecu", "/deletecu", "/editcu", "/updatecu", "/listcu", "/readcu","/cuinsert","/listcur" })
 public class cursoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private cursoModel cumodel=null;
@@ -62,10 +62,10 @@ String path = request.getServletPath();
 					mensaje = list(request, cumodel);
 					destino = "/panelcu.jsp";
 					
-				} else if (path.equals("/cuedit")) {//Llama a una vista
+				} else if (path.equals("/editcu")) {//Llama a una vista
 					read(request, cumodel);
 					destino = "/updatecu.jsp";
-				}else if (path.equals("/cuupdate")) {//update BD
+				}else if (path.equals("/updatecu")) {//update BD
 						update(request);
 						mensaje = list(request, cumodel);
 						destino = "/panelcu.jsp";
@@ -74,17 +74,20 @@ String path = request.getServletPath();
 				} else if (path.equals("/removecu")) {//Llama a una vista
 					read(request, cumodel);
 					destino = "/deletecu.jsp";				
-				} else if (path.equals("/cudelete")) {//Delete en una BD
+				} else if (path.equals("/deletecu")) {//Delete en una BD
 					delete(request);
 					mensaje = list(request, cumodel);
 					destino = "/panelcu.jsp";
 				
-				}else if (path.equals("/culist")) {//Lista todos dato BD
+				}else if (path.equals("/listcu")) {//Lista todos dato BD
 					mensaje = list(request, cumodel);
 					destino = "/panelcu.jsp";
-				} else if (path.equals("/curead")) {//Muestra dato seleccionado
+				} else if (path.equals("/readcu")) {//Muestra dato seleccionado
 					read(request, cumodel);
-					destino = "readcu.jsp";
+					destino = "/readcu.jsp";
+				}else if(path.equals("/listcur")){
+					mensaje =list(request,cumodel);
+					destino = "/vistacursos.jsp";
 				}
 
 				if (mensaje != null) {

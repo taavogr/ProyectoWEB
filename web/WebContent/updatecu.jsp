@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Insert Code - Panel Categorias</title>
+  <title>Insert Code - Panel Curso</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -34,24 +34,33 @@
   
   <div class="container">
   <div class="row">
-    <h3> Actualizar Categoria</h3>
+    <h3> Actualizar Curso</h3>
   </div>
 
-  <form class="col s12" action="cupdate" method="post">
+  <form class="col s12" action="updatecu" method="post">
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="id" name="id" type="text" class="validate" value="${requestScope.cate.idCategoria}" readonly>
+          <input id="id" name="id" type="text" class="validate" value="${requestScope.cur.idCurso}" readonly>
           <label for="id">ID</label>
         </div>
       </div>
 
        <div class="row">
         <div class="input-field col s12">
-          <input id="nombre" name="nombre" type="text" class="validate" value="${requestScope.cate.nombre}">
+          <input id="nombre" name="nombre" type="text" class="validate" value="${requestScope.cur.nombre}">
           <label for="nombre">Nombre</label>
         </div>
       </div>
+      
+             <div class="row">
+        <div class="input-field col s12">
+          <input id="monto" name="monto" type="text" class="validate" value="${requestScope.cur.monto}">
+          <label for="monto">Monto</label>
+        </div>
+      </div>
+      
+      
 
             <div class="center">
              <button class="btn waves-effect waves-light cyan darken-4" type="submit" name="action">

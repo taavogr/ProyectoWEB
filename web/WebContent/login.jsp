@@ -14,27 +14,15 @@
 </head>
 <body>
   <nav class="blue-grey lighten-2" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo"><img class="responsive-img" src="imagenes/Insert_Project.png" height="20px" width="100px" ></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="login.jsp">Ingresar</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#login.jsp">Ingresar</a></li>
-      </ul>
+    <div class="nav-wrapper container"><a id="logo-container" href="index.jsp" class="brand-logo"><img class="responsive-img center" src="imagenes/Insert_Project.png" height="20px" width="100px" ></a>
+      
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
   
-  <div class="container">
-    <div class="section">
+  <form class="col s12" action="login" method="post">
       <div class="row">
-    <form class="col s12" action="insertu" method="post">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="first_name" name ="nombre" type="text" class="validate">
-          <label for="first_name">Nombre</label>
-        </div>
+        
         <div class="input-field col s6">
           <input id="nick" name="nick" type="text" class="validate">
           <label for="nick">Nick de Usuario</label>
@@ -42,34 +30,19 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="dni" name="dni" type="text" class="validate">
-          <label for="dni">DNI</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" name="password" type="password" class="validate">
+          <input id="password" name="password" type="password" class="validate" >
           <label for="password">Password</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" name="email" type="email" class="validate">
-          <label for="email">Correo</label>
-        </div>
-      </div>
+ 
       <div class="center">
              <button class="btn waves-effect waves-light cyan darken-4" type="submit" name="action">
 
-Registrarse<i class="material-icons right">send</i>
-</button>
-      </div>
-
-    </form>
-  </div>
+Ingresar<i class="material-icons right">send</i>
+   
+    </button>
     </div>
-  </div>
-
+    </form>
 
   
 

@@ -19,12 +19,14 @@
         <li><a  href="paneladmin.jsp">HOME</a></li>
         <li><a  href="clist">Categorias</a></li>
         <li><a   href="culist">Cursos</a></li>
+        <li><a   href="listt">Temas</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a   href="paneladmin.jsp">HOME</a></li>
         <li><a   href="clist">Categorias</a></li>
         <li><a  href="culist">Cursos</a></li>
+        <li><a   href="listt">Temas</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -65,7 +67,7 @@
 
              Agregar<i class="material-icons right">send</i>
     </button>
-    <a class="waves-effect waves-light cyan darken-4 btn" href="clist">Cancelar</a>
+    <a class="waves-effect waves-light cyan darken-4 btn" href="listcu">Cancelar</a>
     </div>
     </form>
   </div>

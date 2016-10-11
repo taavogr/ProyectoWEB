@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Insert Code - Panel Categorias</title>
+  <title>Insert Code - Panel Temas</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,41 +33,25 @@
   </nav>
   
   <div class="container">
-  <div class="row">
-    <h3> Actualizar Categoria</h3>
-  </div>
-
-  <form class="col s12" action="cupdate" method="post">
-
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="id" name="id" type="text" class="validate" value="${requestScope.cate.idCategoria}" readonly>
-          <label for="id">ID</label>
-        </div>
-      </div>
-
-       <div class="row">
-        <div class="input-field col s12">
-          <input id="nombre" name="nombre" type="text" class="validate" value="${requestScope.cate.nombre}">
-          <label for="nombre">Nombre</label>
-        </div>
-      </div>
-
-            <div class="center">
-             <button class="btn waves-effect waves-light cyan darken-4" type="submit" name="action">
-
-                Actualizar<i class="material-icons right">send</i>
-             </button>
-            </div>
-
-  	
-  </form>
-  	
-  
-  
-
-  
-  </div>
+		
+		<div class="row">
+			<h3>Eliminar Tema</h3>
+		</div>
+		<div class="row">
+			<form class="form-horizontal" action="deletet" method="post">
+				<input type="hidden" name="id" value="${requestScope.tem.idTemario}" />
+				<p class="alert alert-error">
+					Esta seguro de eliminar este curso?<br /> <b>Nombre</b>:${requestScope.tem.nombre}
+					<br />
+				</p>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-danger">Si eliminar</button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="btn" href="listt">No eliminar</a>
+				</div>
+			</form>
+		</div>
+	</div>
   
   
 

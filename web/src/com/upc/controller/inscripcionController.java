@@ -2,6 +2,7 @@ package com.upc.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -124,6 +125,20 @@ public class inscripcionController extends HttpServlet {
 			error="Sin acceso a Base de Datos";
 		}
 		//TODO
+		return error;
+	}
+	
+	protected String list(HttpServletRequest request, inscripcionModel imodel) throws SQLException {
+		String error = null;
+
+		List<Inscripcion> list = imodel.listarIncripciones();
+
+		if (list != null) {
+			request.setAttribute("listinscripciones", list);
+		} else {
+			error = "Sin acceso a Base de Datos";
+		}
+
 		return error;
 	}
 

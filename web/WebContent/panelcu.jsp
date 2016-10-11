@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Insert Code - Panel Categorias</title>
+  <title>Insert Code - Panel Cursos</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,7 +26,7 @@
       <ul id="nav-mobile" class="side-nav">
         <li><a   href="paneladmin.jsp">HOME</a></li>
         <li><a   href="clist">Categorias</a></li>
-        <li><a  href="listcu">Cursos</a></li>
+        <li><a  href="culist">Cursos</a></li>
         <li><a   href="listt">Temas</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -34,44 +35,45 @@
   
   <div class="container">
   <div class="row">
-    <h3> Actualizar Categoria</h3>
+    <h3> Mantenimiento de Cursos</h3>
+  </div>
+  <div class="row">
+    
+    <a class="waves-effect waves-light btn right" href="newcu">Agregar</a>
+    <table class="striped">
+      <thead>
+          <tr>
+              <th data-field="id">ID</th>
+              <th data-field="name">CURSO</th>
+              <th data-field="acciones">ACCIONES</th>
+              
+          </tr>
+        </thead>
+
+        <tbody>
+        <c:forEach var="c" items="${requestScope.listcursos}" >
+        <tr>
+        <td>${c.idCurso }</td>
+        <td>${c.nombre }</td>
+        <td width=350>
+
+       <a class="btn" href="editcu?id=${c.idCurso}">Editar</a>
+&nbsp; <a class="btn" href="removecu?id=${c.idCurso}">Eliminar</a>
+
+        
+        </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+  </div>
   </div>
 
-  <form class="col s12" action="cupdate" method="post">
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="id" name="id" type="text" class="validate" value="${requestScope.cate.idCategoria}" readonly>
-          <label for="id">ID</label>
-        </div>
-      </div>
-
-       <div class="row">
-        <div class="input-field col s12">
-          <input id="nombre" name="nombre" type="text" class="validate" value="${requestScope.cate.nombre}">
-          <label for="nombre">Nombre</label>
-        </div>
-      </div>
-
-            <div class="center">
-             <button class="btn waves-effect waves-light cyan darken-4" type="submit" name="action">
-
-                Actualizar<i class="material-icons right">send</i>
-             </button>
-            </div>
-
-  	
-  </form>
-  	
+  
   
   
 
   
-  </div>
-  
-  
-
-
 
 
   <!--  Scripts-->

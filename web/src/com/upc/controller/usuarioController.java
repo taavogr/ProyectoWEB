@@ -25,7 +25,7 @@ public class usuarioController extends HttpServlet {
 	
 	private usuarioModel umodel = null;
 	private String mensaje = null;
-	private String destino = "/index.html";
+	private String destino = "/index.jsp";
 	private Usuario u = new Usuario();
 	
 	private HttpSession session=null;
@@ -60,12 +60,14 @@ public class usuarioController extends HttpServlet {
 		try {
 			if (path.equals("/insertu")) {
 				insert(request);
-				destino="/index.html";
+				destino="/index.jsp";
 			}else if(path.equals("/login")){
 				String nick=request.getParameter("nick");
 				String password=request.getParameter("password");
 				
 				u=umodel.iniciosesion(nick, password);
+				System.out.println(u.getNombre());
+				System.out.println(password);
 				
 				if (u!=null) {
 					session.setAttribute("usuario", u);
@@ -76,21 +78,24 @@ public class usuarioController extends HttpServlet {
 						destino="paneladmin.jsp";
 						break;
 					case "usuario" :
-						destino="catalogoc.jsp";
+						destino="vistacursou.jsp";
 						break;
 					
 					}
 					
 				}else{
 					request.setAttribute("mensaje", "credenciales no validas");
-					destino="index.hmtl";
+					destino="index.jsp";
 					
 				}
+			}else if(path.equals("/cerraru")){
+				session.invalidate();
+				destino="index.jsp";
 			}
 				
 			
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
