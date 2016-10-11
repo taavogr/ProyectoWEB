@@ -141,7 +141,7 @@ public class Cursodao implements ICursodao{
 		Categoria c = new Categoria();
 		
 		cu.setIdCurso(rs.getInt(1));
-		cu.setMonto(rs.getString(2));
+		cu.setNombre(rs.getString(2));
 		
 		c.setIdCategoria(rs.getInt(3));
 		c.setNombre(rs.getString(4));

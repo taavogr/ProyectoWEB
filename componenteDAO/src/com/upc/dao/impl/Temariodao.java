@@ -18,7 +18,7 @@ public class Temariodao implements ITemariodao{
 	@Override
 	public void create(Temario o) throws SQLException {
 		// TODO Auto-generated method stub
-		String insert = "{call sp_insert_temario(?,?,?,?)}";
+		String insert = "{call sp_insert_temario(?,?,?)}";
 
 		Connection cn = Dbconexcion.getInstance();
 
@@ -28,8 +28,8 @@ public class Temariodao implements ITemariodao{
 
 		cs.registerOutParameter(1, java.sql.Types.VARCHAR);
 		cs.setString(2, o.getNombre());
-		cs.setString(3, o.getDescripcion());
-		cs.setInt(4, o.getIdCurso().getIdCurso());
+
+		cs.setInt(3, o.getIdCurso().getIdCurso());
 
 		cs.execute();
 
@@ -46,7 +46,7 @@ public class Temariodao implements ITemariodao{
 	@Override
 	public void update(Temario o) throws SQLException {
 		// TODO Auto-generated method stub
-		String update = "{call sp_update_temario(?,?,?,?,?)}";
+		String update = "{call sp_update_temario(?,?,?)}";
 
 		Connection cn = Dbconexcion.getInstance();
 
@@ -55,10 +55,8 @@ public class Temariodao implements ITemariodao{
 		CallableStatement cs = cn.prepareCall(update);
 
 		cs.registerOutParameter(1, java.sql.Types.VARCHAR);
-		cs.setInt(2, o.getIdTemario());
-		cs.setString(3, o.getNombre());
-		cs.setString(4, o.getDescripcion());
-		cs.setInt(5, o.getIdCurso().getIdCurso());
+		cs.setString(2, o.getNombre());
+		cs.setInt(3, o.getIdCurso().getIdCurso());
 
 		cs.execute();
 
@@ -145,16 +143,13 @@ public class Temariodao implements ITemariodao{
 		
 		t.setIdTemario(rs.getInt(1));
 		t.setNombre(rs.getString(2));
-		t.setDescripcion(rs.getString(3));
 		
-		cu.setIdCurso(rs.getInt(4));
-		cu.setNombre(rs.getString(5));
+		cu.setIdCurso(rs.getInt(3));
 		
-		c.setIdCategoria(rs.getInt(6));
-		c.setNombre(rs.getString(7));
+		
 		
 		cu.setIdCategoria(c);
-		cu.setMonto(rs.getString(8));
+
 		
 		t.setIdCurso(cu);
 		

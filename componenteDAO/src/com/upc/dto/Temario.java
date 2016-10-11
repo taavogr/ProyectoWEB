@@ -3,7 +3,6 @@ package com.upc.dto;
 public class Temario {
 	private int idTemario;
 	private String nombre;
-	private String descripcion;
 	private Curso idCurso;
 
 	public int getIdTemario() {
@@ -22,13 +21,7 @@ public class Temario {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
-	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
 
 	public Curso getIdCurso() {
 		return idCurso;
@@ -40,7 +33,7 @@ public class Temario {
 
 	@Override
 	public String toString() {
-		return "Temario [idTemario=" + idTemario + ", nombre=" + nombre + ", descripcion=" + descripcion + ", idCurso="
+		return "Temario [idTemario=" + idTemario + ", nombre=" + nombre + ", idCurso="
 				+ idCurso + "]";
 	}
 }

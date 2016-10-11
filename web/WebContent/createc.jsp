@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Insert Code - Panel Categorias</title>
 
@@ -32,57 +31,31 @@
   </nav>
   
   <div class="container">
-  <div class="row">
-    <h3> Mantenimiento de Categorias</h3>
-  </div>
-  <div class="row">
-    
-    <a class="waves-effect waves-light btn right" href="newc">Agregar</a>
-    <table class="striped">
-      <thead>
-          <tr>
-              <th data-field="id">ID</th>
-              <th data-field="name">CATEGORÍA</th>
-              <th data-field="acciones">ACCIONES</th>
-              
-          </tr>
-        </thead>
-
-        <tbody>
-        <c:forEach var="c" items="${requestScope.listcategorias}" >
-        <tr>
-        <td>${c.idCategoria }</td>
-        <td>${c.nombre }</td>
-        <td width=350>
-
-       <a class="btn" href="cedit?id=${c.idCategoria}">Editar</a>
-&nbsp; <a class="btn" href="removec?id=${c.idCategoria}">Eliminar</a>
+  
+   <form class="col s12" action="cinsert" method="post">
+      <div class="row">
         
-        </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+        <div class="input-field col s6">
+          <input id="nombre" name="nombre" type="text" class="validate">
+          <label for="nombre">Nombre de Categoria</label>
+        </div>
+      </div>
+
+ 
+      <div class="center">
+             <button class="btn waves-effect waves-light cyan darken-4" type="submit" name="action">
+
+             Agregar<i class="material-icons right">send</i>
+    </button>
+    <a class="waves-effect waves-light cyan darken-4 btn" href="clist">Cancelar</a>
+    </div>
+    </form>
   </div>
-  </div>
-
-
   
-  
-  
-
-  
-
-
-  <!--  Scripts-->
+    <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script>
-      $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-  });
-  </script>
 
-  </body>
+</body>
 </html>
