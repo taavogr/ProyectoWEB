@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.upc.dto.Curso;
 import com.upc.dto.Inscripcion;
@@ -28,6 +29,7 @@ public class inscripcionController extends HttpServlet {
 	private inscripcionModel imodel = null;
 	private String destino = "/paneli.jsp";
 	private String mensaje=null;
+	private HttpSession session=null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -95,7 +97,6 @@ public class inscripcionController extends HttpServlet {
 		Curso c= new Curso();
 		Usuario u = new Usuario();
 		Inscripcion ins = new Inscripcion();
-		
 		u.setIdUsuario(Integer.parseInt(request.getParameter("iduser")));
 		c.setIdCurso(Integer.parseInt(request.getParameter("idcurso")));
 		

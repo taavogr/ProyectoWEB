@@ -21,14 +21,14 @@
     <div class="nav-wrapper container"><a id="logo-container" href="index.jsp" class="brand-logo"><img class="responsive-img" src="imagenes/Insert_Project.png" height="20px" width="100px" ></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="listcuru">Cursos</a></li>
-        <li><a href="listinu">Perfil de "${sessionScope.usuario.nombres}"</a></li>
+        <li><a href="listinu">Perfil de "${sessionScope.usuario.nombre}"</a></li>
         <li><a href="cerraru">Cerrar Sesion</a></li>
         
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="listcuru">Cursos</a></li>
-        <li><a href="listinu">Perfil de "${sessionScope.usuario.nombres}"</a></li>
+        <li><a href="listinu">Perfil de "${sessionScope.usuario.nombre}"</a></li>
         <li><a href="cerraru">Cerrar Sesion</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -47,43 +47,16 @@
             <div class="card-content">
               <p>${c.monto }</p>
             </div>
+            <div class="card-action">
+              <a href="readcu?id=${c.idCurso }">Agregar a Perfil</a>
+            </div>
           </div>
         </div>
       </div>
         </c:forEach>
   </div>
   
-      <div id="modal1" class="modal">
-    <div class="modal-content">
-      <form class="col s12" action="login" method="post">
-      <div class="row">
-        
-        <div class="input-field col s6">
-          <input id="nick" name="nick" type="text" class="validate">
-          <label for="nick">Nick de Usuario</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" name="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
- 
-      <div class="center">
-             <button class="btn waves-effect waves-light cyan darken-4" type="submit" name="action">
 
-Ingresar<i class="material-icons right">send</i>
-   
-    </button>
-    </div>
-    </form>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
-    </div>
-  </div>
-  </div>
-  
   
   
 

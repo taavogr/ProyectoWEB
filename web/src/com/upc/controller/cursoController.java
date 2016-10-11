@@ -20,7 +20,7 @@ import com.upc.model.cursoModel;
 /**
  * Servlet implementation class cursoController
  */
-@WebServlet({ "/newcu", "/createcu", "/removecu", "/deletecu", "/editcu", "/updatecu", "/listcu", "/readcu","/cuinsert","/listcur" })
+@WebServlet({ "/newcu", "/createcu", "/removecu", "/deletecu", "/editcu", "/updatecu", "/listcu", "/readcu","/cuinsert","/listcur","/listcuru" })
 public class cursoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private cursoModel cumodel=null;
@@ -84,10 +84,13 @@ String path = request.getServletPath();
 					destino = "/panelcu.jsp";
 				} else if (path.equals("/readcu")) {//Muestra dato seleccionado
 					read(request, cumodel);
-					destino = "/readcu.jsp";
+					destino = "/perfil.jsp";
 				}else if(path.equals("/listcur")){
 					mensaje =list(request,cumodel);
 					destino = "/vistacursos.jsp";
+				}else if(path.equals("/listcuru")){
+					mensaje =list(request,cumodel);
+					destino = "/vistacursou.jsp";
 				}
 
 				if (mensaje != null) {

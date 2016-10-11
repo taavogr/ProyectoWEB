@@ -14,6 +14,9 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
+<c:if test="${sessionScope.usuario == null}">
+		<jsp:forward page="index.jsp" />
+</c:if>
   <nav class="blue-grey lighten-2" role="navigation">
     <div class="nav-wrapper container">
       <ul class="right hide-on-med-and-down">
