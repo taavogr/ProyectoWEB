@@ -17,6 +17,9 @@
  <c:if test="${sessionScope.usuario == null}">
 		<jsp:forward page="index.jsp" />
 </c:if>
+ <c:if test="${sessionScope.usuario.rol=='usuario' }">
+		<jsp:forward page="index.jsp" />
+</c:if>
   <nav class="blue-grey lighten-2" role="navigation">
     <div class="nav-wrapper container">
       <ul class="right hide-on-med-and-down">

@@ -29,6 +29,10 @@ public class inscripcionModel {
 	public List<Inscripcion> listarIncripciones() throws SQLException{
 		return imodel.getAll();
 	}
+	
+	public List<Inscripcion> listarInsxuser(int codigo) throws SQLException{
+		return imodel.getInsUser(codigo);
+	}
 		
 
 }

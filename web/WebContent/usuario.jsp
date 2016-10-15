@@ -29,11 +29,12 @@
   <div class="container">
     <div class="section">
       <div class="row">
-    <form class="col s12" action="insertu" method="post">
+    <form class="col s12" action="insertu" method="post" name="formValidate">
       <div class="row">
         <div class="input-field col s6">
           <input id="first_name" name ="nombre" type="text" class="validate">
           <label for="first_name">Nombre</label>
+
         </div>
         <div class="input-field col s6">
           <input id="nick" name="nick" type="text" class="validate">
@@ -114,6 +115,7 @@ Registrarse<i class="material-icons right">send</i>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  
 
   </body>
 </html>

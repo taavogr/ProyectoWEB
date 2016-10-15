@@ -17,18 +17,21 @@
  <c:if test="${sessionScope.usuario == null}">
 		<jsp:forward page="index.jsp" />
 </c:if>
+ <c:if test="${sessionScope.usuario.rol=='admin' }">
+		<jsp:forward page="index.jsp" />
+</c:if>
   <nav class="blue-grey lighten-2" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="index.jsp" class="brand-logo"><img class="responsive-img" src="imagenes/Insert_Project.png" height="20px" width="100px" ></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="listcuru">Cursos</a></li>
-        <li><a href="listinu">Perfil de "${sessionScope.usuario.nombre}"</a></li>
+        <li><a href="listinu?id=${sessionScope.usuario.idUsuario }">Perfil de "${sessionScope.usuario.nombre}"</a></li>
         <li><a href="cerraru">Cerrar Sesion</a></li>
         
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="listcuru">Cursos</a></li>
-        <li><a href="listinu">Perfil de "${sessionScope.usuario.nombre}"</a></li>
+        <li><a href="listinu?id=${sessionScope.usuario.idUsuario }">Perfil de "${sessionScope.usuario.nombre}"</a></li>
         <li><a href="cerraru">Cerrar Sesion</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.upc.ds.Dbconexcion;
-import com.upc.dto.Categoria;
+
 import com.upc.dto.Curso;
 import com.upc.dto.Inscripcion;
 import com.upc.dto.Usuario;
@@ -142,33 +142,43 @@ public class Inscripciondao implements IInscripciondao{
 		Inscripcion i = new Inscripcion();
 		Usuario u = new Usuario();
 		Curso cu = new Curso();
-		Categoria c = new Categoria();
+		
 		
 		i.setIdInscripcion(rs.getInt(1));
 		i.setFecha_inscripcion(rs.getString(2));
 		
 		u.setIdUsuario(rs.getInt(3));
-		u.setNombre(rs.getString(4));
-		u.setDNI(rs.getString(5));
-		u.setCorreo(rs.getString(6));
-		u.setUsuario(rs.getString(7));
-		u.setClave(rs.getString(8));
-		u.setRol(rs.getString(9));
+
 		
 		i.setIdUsuario(u);
 		
 		cu.setIdCurso(rs.getInt(4));
 		cu.setNombre(rs.getString(5));
 		
-		c.setIdCategoria(rs.getInt(6));
-		c.setNombre(rs.getString(7));
 		
-		cu.setIdCategoria(c);
-		cu.setMonto(rs.getString(8));
+	
 		
 		i.setIdCurso(cu);
 		
 		return i;
+	}
+
+	@Override
+	public List<Inscripcion> getInsUser(int codigo) throws SQLException {
+		// TODO Auto-generated method stub
+		List<Inscripcion> lista = new ArrayList<>();
+		String query = "{call sp_list_inscripcionxusuario(?)}";
+		Connection cn = Dbconexcion.getInstance();
+
+		CallableStatement cs = cn.prepareCall(query);
+		cs.setInt(1, codigo);
+
+		ResultSet rs = cs.executeQuery();
+		if (rs.next()) {
+			 lista.add(mapRow(rs));
+		}
+
+		return lista;
 	}
 
 }

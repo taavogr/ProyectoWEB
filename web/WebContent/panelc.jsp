@@ -14,7 +14,10 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-<c:if test="${sessionScope.usuario == null}">
+ <c:if test="${sessionScope.usuario == null}">
+		<jsp:forward page="index.jsp" />
+</c:if>
+ <c:if test="${sessionScope.usuario.rol=='usuario' }">
 		<jsp:forward page="index.jsp" />
 </c:if>
   <nav class="blue-grey lighten-2" role="navigation">

@@ -78,7 +78,7 @@ public class usuarioController extends HttpServlet {
 						destino="paneladmin.jsp";
 						break;
 					case "usuario" :
-						destino="vistacursou.jsp";
+						destino="paneli.jsp";
 						break;
 					
 					}

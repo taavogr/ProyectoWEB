@@ -11,25 +11,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import com.upc.dto.Curso;
 import com.upc.dto.Inscripcion;
-import com.upc.dto.Temario;
 import com.upc.dto.Usuario;
 import com.upc.model.inscripcionModel;
-import com.upc.model.temaModel;
+
 
 /**
  * Servlet implementation class inscripcionController
  */
-@WebServlet({ "/newi", "/createi", "/removei", "/deletei","/listi","/readi" })
+@WebServlet({ "/newi", "/createi", "/removei", "/deletei","/listi","/readi","/listinu" })
 public class inscripcionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private inscripcionModel imodel = null;
 	private String destino = "/paneli.jsp";
 	private String mensaje=null;
-	private HttpSession session=null;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -61,7 +60,7 @@ public class inscripcionController extends HttpServlet {
 				
 			}else if(path.equals("/createi")){
 				insert(request);
-				mensaje = list(request,imodel);
+				mensaje = listxu(request,imodel);
 				destino = "/paneli.jsp";
 			}else if(path.equals("/removei")){
 				destino="/deletei.jsp";
@@ -69,8 +68,8 @@ public class inscripcionController extends HttpServlet {
 				delete(request);
 				mensaje = list(request,imodel);
 				destino="/paneli.jsp";
-			}else if(path.equals("/listi")){
-				mensaje = list(request,imodel);
+			}else if(path.equals("/listinu")){
+				mensaje = listxu(request,imodel);
 				destino ="/paneli.jsp";
 			}else if(path.equals("/readi")){
 				read(request,imodel);
@@ -141,6 +140,22 @@ public class inscripcionController extends HttpServlet {
 		}
 
 		return error;
+	}
+	
+	protected String listxu(HttpServletRequest request,inscripcionModel imodel) throws SQLException {
+		String error = null;
+		int id =Integer.parseInt(request.getParameter("id"));
+		/*int id= 18;*/
+		List<Inscripcion> list = imodel.listarInsxuser(id);
+		System.out.println("id"+id);
+		if (list != null) {
+			request.setAttribute("listinscripcionesxusuario", list);
+		} else {
+			error = "Sin acceso a Base de Datos";
+		}
+
+		return error;
+		
 	}
 
 	/**

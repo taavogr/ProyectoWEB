@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `dbcursosvirtual`.`categoria` (
   `Nombre` VARCHAR(30) NULL DEFAULT NULL,
   PRIMARY KEY (`idCategoria`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 10
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `dbcursosvirtual`.`curso` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `dbcursosvirtual`.`usuario` (
   `Rol` VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (`idUsuario`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 18
+AUTO_INCREMENT = 21
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -88,6 +88,7 @@ CREATE TABLE IF NOT EXISTS `dbcursosvirtual`.`inscripcion` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -125,7 +126,7 @@ BEGIN
 	select idUsuario,Nombre,DNI,Correo,Usuario,AES_DECRYPT(Clave,'llave') as Clave, Rol
     from usuario
     where Usuario=p_Usuario
-    and Clave=p_clave;
+    and Clave=p_Clave;
 END$$
 
 DELIMITER ;
@@ -451,6 +452,20 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_list_curso`()
 BEGIN
 	select c.idCurso,c.Nombre,ca.idCategoria,ca.Nombre,c.Monto
     from curso c inner join categoria ca where c.idCategoria=ca.idCategoria;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure sp_list_inscripcionxusuario
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `dbcursosvirtual`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_list_inscripcionxusuario`(p_idUsuario int)
+BEGIN
+	select i.idInscripcion,i.Fecha_inscripcion,i.idUsuario,i.idCurso, c.Nombre
+    from inscripcion i inner join curso c where p_idUsuario=idUsuario;
 END$$
 
 DELIMITER ;

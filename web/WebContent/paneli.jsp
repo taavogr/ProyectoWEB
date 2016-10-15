@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-   <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Insert Code - Aprende Programación</title>
+  <title>Insert Code - Aprende ProgramaciÃ³n</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,14 +24,14 @@
     <div class="nav-wrapper container"><a id="logo-container" href="index.jsp" class="brand-logo"><img class="responsive-img" src="imagenes/Insert_Project.png" height="20px" width="100px" ></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="listcuru">Cursos</a></li>
-        <li><a href="listinu">Perfil de "${sessionScope.usuario.nombre}"</a></li>
+        <li><a href="listinu?id=${sessionScope.usuario.idUsuario }">Perfil de "${sessionScope.usuario.nombre}"</a></li>
         <li><a href="cerraru">Cerrar Sesion</a></li>
         
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="listcuru">Cursos</a></li>
-        <li><a href="listinu">Perfil de "${sessionScope.usuario.nombre}"</a></li>
+        <li><a href="listinu?id=${sessionScope.usuario.idUsuario }">Perfil de "${sessionScope.usuario.nombre}"</a></li>
         <li><a href="cerraru">Cerrar Sesion</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -41,20 +41,31 @@
    <div class="container">
 		
 		<div class="row">
-			<h3>Inscribirse en ${requestScope.cur.nombre} ? </h3>
-		</div>
-		<div class="row">
-			<form class="form-horizontal" action="createi" method="post">
-				<input type="hidden" name="idcurso" value="${requestScope.cur.idCurso}" />
-				<input type="hidden" name="iduser" value="${sessionScope.usuario.idUsuario}" />
+			<h3>Cursos de ${sessionScope.usuario.nombre} </h3>
+			<table class="striped">
+      <thead>
+          <tr>
+              <th data-field="id">ID</th>
+              <th data-field="curso">Curso</th>
+              <th data-field="fecha">FECHA</th>
+              
+          </tr>
+        </thead>
 
-				<div class="form-actions">
-					<button type="submit" class="btn btn-danger">Inscribirse</button>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a class="btn" href="listcuru">No Inscribirse</a>
-				</div>
-			</form>
+        <tbody>
+        <c:forEach var="c" items="${requestScope.listinscripcionesxusuario}" >
+        <tr>
+        <td>${c.idInscripcion }</td>
+        <td>${c.idCurso.getNombre() }</td>
+        <td>${c.fecha_inscripcion }</td>
+
+        
+        </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 		</div>
+	
 	</div>
   
 
